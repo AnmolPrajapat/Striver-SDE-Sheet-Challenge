@@ -30,6 +30,7 @@ class MaxLenZeroSumSub
 class GfG
 {
     int maxLen(int arr[], int n){
+        int k=0;
         int max = 0;
         int sum =0;
         Map<Integer,Integer> map = new HashMap<>();
@@ -38,8 +39,8 @@ class GfG
             sum+= arr[i];
             if(sum == 0) max = i+1;
             else{
-                if(map.containsKey(sum)){
-                    max = Math.max(max,i-map.get(sum));
+                if(map.containsKey(sum-k)){
+                    max = Math.max(max,i-map.get(sum-k));
                 }
                 else{
                     map.put(sum,i);
